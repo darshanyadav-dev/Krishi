@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday Kagdi🎂</title>
+<title>Happy Birthday Krishi 🎂</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">
 
 <style>
 
@@ -12,53 +14,48 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: 'Poppins', sans-serif;
+font-family: Arial, sans-serif;
 }
 
 body{
-height:100vh;
 background: linear-gradient(135deg,#ffdde1,#ee9ca7);
-display:flex;
-justify-content:center;
-align-items:center;
 text-align:center;
-overflow:hidden;
+padding:20px;
 }
 
 .container{
+max-width:420px;
+margin:auto;
 background:white;
-padding:25px;
+padding:20px;
 border-radius:20px;
-width:90%;
-max-width:380px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 h1{
 color:#ff4d6d;
-font-size:28px;
 margin-bottom:15px;
 }
 
-.photo{
-width:30%;
-border-radius:50px;
+.main-photo{
+width:100%;
+border-radius:15px;
 margin-bottom:15px;
 }
 
 .message{
 font-size:15px;
 color:#444;
+margin-bottom:20px;
 line-height:1.5;
-margin-bottom:15px;
 }
 
 button{
 background:#ff4d6d;
+color:white;
 border:none;
 padding:12px 22px;
-border-radius:30px;
-color:white;
+border-radius:25px;
 font-size:16px;
 cursor:pointer;
 }
@@ -73,18 +70,33 @@ font-weight:bold;
 color:#ff4d6d;
 }
 
+/* Gallery */
+
+.gallery{
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
 /* Floating hearts */
 
 .heart{
-position:absolute;
-color:#ff4d6d;
+position:fixed;
+bottom:-20px;
 font-size:20px;
-animation: float 6s linear infinite;
+animation:float 5s linear infinite;
+color:#ff4d6d;
 }
 
 @keyframes float{
 0%{
-transform:translateY(100vh);
+transform:translateY(0);
 opacity:0;
 }
 
@@ -93,7 +105,7 @@ opacity:1;
 }
 
 100%{
-transform:translateY(-10vh);
+transform:translateY(-110vh);
 opacity:0;
 }
 }
@@ -105,17 +117,16 @@ opacity:0;
 
 <div class="container">
 
-<h1>🎉 Happy Birthday Kagdi 🎉</h1>
+<h1>🎉 Happy Birthday Krishi 🎉</h1>
 
-<img src="krishi.jpg" class="photo">
+<img src="photo1.jpg" class="main-photo">
 
 <p class="message">
-Respected Kagdi❤️ <br><br>
+Dear Krishi ❤️ <br><br>
+You are one of the most wonderful people in my life.  
+Your smile makes everything brighter.  
 
-On this special day, I just want to say that you are truly crazy.  
-Your smile makes everything brighter and your presence makes life happier.  
-
-May your life be filled with success, laughter, love and unforgettable memories.  
+May your birthday bring you happiness, success, and beautiful memories.  
 
 ✨ Keep shining always ✨
 </p>
@@ -124,42 +135,74 @@ May your life be filled with success, laughter, love and unforgettable memories.
 
 <p id="surprise"></p>
 
+<h2 style="margin-top:25px;color:#ff4d6d;">📸 Memories</h2>
+
+<div class="gallery">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
 </div>
 
-<!-- Birthday music -->
+</div>
 
 <audio autoplay loop>
-<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid" type="audio/midi">
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid">
 </audio>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
 
-function showWish(){
-document.getElementById("surprise").innerHTML =
-" Krishi, you deserve the happiest birthday and the brightest future! 🎂✨";
+/* Confetti on load */
+
+window.onload = function(){
+
+confetti({
+particleCount:150,
+spread:120,
+origin:{y:0.6}
+});
+
 }
 
-/* Floating hearts generator */
+/* Surprise message */
+
+function showWish(){
+
+document.getElementById("surprise").innerHTML =
+"💖 Krishi, may your life be filled with happiness, success and endless smiles! 🎂✨";
+
+confetti({
+particleCount:200,
+spread:150
+});
+
+}
+
+/* Floating hearts */
 
 function createHeart(){
 
-const heart = document.createElement("div");
+const heart=document.createElement("div");
+
 heart.classList.add("heart");
 
-heart.innerHTML = "💖";
+heart.innerHTML="💖";
 
-heart.style.left = Math.random()*100 + "vw";
-heart.style.animationDuration = (Math.random()*3+3) + "s";
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*2+3)+"s";
 
 document.body.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
-},6000);
+},5000);
 
 }
 
-setInterval(createHeart,400);
+setInterval(createHeart,500);
 
 </script>
 
