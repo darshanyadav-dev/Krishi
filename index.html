@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Kagdi🎂</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+body{
+height:100vh;
+background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.container{
+background:white;
+padding:25px;
+border-radius:20px;
+width:90%;
+max-width:380px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+color:#ff4d6d;
+font-size:28px;
+margin-bottom:15px;
+}
+
+.photo{
+width:30%;
+border-radius:50px;
+margin-bottom:15px;
+}
+
+.message{
+font-size:15px;
+color:#444;
+line-height:1.5;
+margin-bottom:15px;
+}
+
+button{
+background:#ff4d6d;
+border:none;
+padding:12px 22px;
+border-radius:30px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff1e4d;
+}
+
+#surprise{
+margin-top:15px;
+font-weight:bold;
+color:#ff4d6d;
+}
+
+/* Floating hearts */
+
+.heart{
+position:absolute;
+color:#ff4d6d;
+font-size:20px;
+animation: float 6s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-10vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 Happy Birthday Kagdi 🎉</h1>
+
+<img src="krishi.jpg" class="photo">
+
+<p class="message">
+Respected Kagdi❤️ <br><br>
+
+On this special day, I just want to say that you are truly crazy.  
+Your smile makes everything brighter and your presence makes life happier.  
+
+May your life be filled with success, laughter, love and unforgettable memories.  
+
+✨ Keep shining always ✨
+</p>
+
+<button onclick="showWish()">Open Birthday Surprise 🎁</button>
+
+<p id="surprise"></p>
+
+</div>
+
+<!-- Birthday music -->
+
+<audio autoplay loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid" type="audio/midi">
+</audio>
+
+<script>
+
+function showWish(){
+document.getElementById("surprise").innerHTML =
+" Krishi, you deserve the happiest birthday and the brightest future! 🎂✨";
+}
+
+/* Floating hearts generator */
+
+function createHeart(){
+
+const heart = document.createElement("div");
+heart.classList.add("heart");
+
+heart.innerHTML = "💖";
+
+heart.style.left = Math.random()*100 + "vw";
+heart.style.animationDuration = (Math.random()*3+3) + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(createHeart,400);
+
+</script>
+
+</body>
+</html>
